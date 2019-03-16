@@ -1,5 +1,10 @@
+var nzhcn = require("nzh/cn");
+
 export const fn = ({ term, display }) => {
-  display({
-    title: `You've entered ${term}`
-  })
+  if (term.match('^nzh ')){
+    var num = nzhcn.encodeB(term.split(" ")[1]);
+    display({
+      title: `${num}`
+    })
+  }
 }
